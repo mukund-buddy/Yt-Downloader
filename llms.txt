@@ -1,0 +1,30 @@
+# TuneGrab
+
+> Local-first YouTube music downloader: web UI, double-click launcher, and an agent API. Audio or video, playlists or singles, custom filenames, clean metadata.
+
+## Run
+
+- `start.bat` (Windows) or `python bridge/tunegrab_bridge.py serve --open`
+- App: http://127.0.0.1:8787
+- Requirements: Python 3.9+, yt-dlp, ffmpeg
+
+## Agent entry points
+
+- CLI: `python bridge/tunegrab_bridge.py add <URL> --mode audio --quality 320 --out <DIR> --json`
+- Resolve only: `python bridge/tunegrab_bridge.py resolve <URL>`
+- API: `POST /api/jobs`, `GET /api/status`, `GET /api/jobs/<id>/events`
+- Docs: AGENTS.md, docs/API.md
+
+## Rules
+
+- Keep clean metadata and fixed file dates on unless the user says otherwise.
+- Playlist cap is 200 by default, maximum 500.
+- Only http(s) URLs.
+- Never add tags beyond title and artist.
+
+## Files
+
+- index.html, assets/css/style.css, assets/js/app.js
+- bridge/tunegrab_bridge.py
+- README.md, AGENTS.md, docs/API.md
+- LICENSE (Apache-2.0)
